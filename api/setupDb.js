@@ -63,8 +63,8 @@ const dropTables = async () => {
   }
 };
 
-// dropTables();
-createTables();
+dropTables();
+// createTables();
 
 // const syncDatabase = async () => {
 //   const command = process.argv[2];

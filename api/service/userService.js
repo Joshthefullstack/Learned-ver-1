@@ -1,7 +1,7 @@
 const User = require("../models/user");
 
 async function createUser(user){
-  const existingUser = User.findByEmail(user.email);
+  const existingUser = await User.findByEmail(user.email);
   if(existingUser){
     throw new Error("User already exists");
   }
@@ -24,7 +24,18 @@ async function getAllUsers(){
   }
 }
 
+async function getUser(email, password){
+  try{
+    const user = await User.login(email, password);
+    return user;
+  } catch(err){
+    console.log(err)
+  }
+}
+
 
 module.exports = {
-  createUser
+  createUser,
+  getAllUsers,
+  getUser
 }

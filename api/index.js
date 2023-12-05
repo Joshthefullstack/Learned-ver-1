@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const pool = require("./config/dbConfig");
-// const setupDb = require("./setupDb.js")
+// const setupDb = require("./setupDb.js");
 
 const app = express();
 dotenv.config();
