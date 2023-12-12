@@ -1,7 +1,8 @@
 const pool = require("../config/dbConfig.js");
 const { USERS } = require("../utils/constants.js").TABLES;
-const {generateUniqueId} = require("../utils/utils.js");
-const bcrypt = require("bcrypt")
+const {generateUniqueId } = require("../utils/utils.js");
+const bcrypt = require("bcrypt");
+
 
 class UserModel{
   constructor({pool}){
@@ -23,7 +24,7 @@ class UserModel{
     // const client = await this.pool.connect();
     try {
       const result = await this.pool.query(
-        `INSERT INTO ${USERS} ( id, username, email, password, role) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+        `INSERT INTO ${USERS} ( id, username, email, password, role ) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
         [id, username, email, password, role]
       );
       return result.rows[0];
@@ -69,9 +70,7 @@ class UserModel{
         async login(email, password) {
           // const client = await this.pool.connect();
           try {
-            // const result = await this.pool.query(`SELECT * FROM ${USERS} WHERE email = $1`, [email]);
             const user = await this.findByEmail(email);
-            // const user = result.rows[0];
             if(user){
               const isMatch = await bcrypt.compare(password, user.password);
               if(isMatch){

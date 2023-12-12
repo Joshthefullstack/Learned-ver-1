@@ -27,13 +27,22 @@ async function getUsers(req, res, next) {
 
 async function getUser(req, res, next){
   try{
-    const user = await userService.getUser()
+    const { email, password } = req.body;
+    const user = await userService.getUser(email, password);
+    return res.status(200).json({
+      status: "success",
+      data: user,
+    });
   } catch(error){
-    console.log(error)
+    return res.status(400).json({
+      status: false,
+      error: error.message
+    })
   }
 }
 
 module.exports = {
   createUser,
   getUsers,
+  getUser
 };

@@ -28,8 +28,8 @@ async function getUser(email, password){
   try{
     const user = await User.login(email, password);
     return user;
-  } catch(err){
-    console.log(err)
+  } catch(error){
+    throw error
   }
 }
 
