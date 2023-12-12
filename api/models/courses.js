@@ -18,8 +18,13 @@ class CourseModel{
     let { title, description, instructor_id } = course;
     const id = generateUniqueId();
     const instructor = await this.pool.query(`SELECT * FROM ${USERS} WHERE id = $1`, [instructor_id]);
-    if(!instructor){
+    // console.log(instructor);
+    if(instructor.rows.length === 0){
       throw new Error("Instructor does not exist");
+    }
+
+    if(instructor.rows[0].role === "student"){
+      throw new Error("Only teachers can create courses");
     }
     try {
       const result = await this.pool.query(
@@ -31,4 +36,48 @@ class CourseModel{
       throw error;
     }
     }
+
+    async delete (id){
+      try{
+        const result = await this.pool.query(`DELETE FROM ${COURSES} WHERE id = $1 RETURNING *`, [id]);
+        return result.rows[0];
+      }
+      catch(error){
+        throw error;
+      }
+    }
+
+  async getAll() {
+    try {
+      const result = await this.pool.query(`SELECT * FROM ${COURSES}`);
+      return result.rows;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getById(id){
+    try{
+      const result = await this.pool.query(`SELECT * FROM ${COURSES} WHERE id = $1`, [id]);
+      return result.rows[0];
+    }
+    catch(error){
+      throw error;
+    }
+  }
+
+  async update(id, course){
+    try{
+      const { title, description } = course;
+      const result = await this.pool.query(`UPDATE ${COURSES} SET title = $1, description = $2 WHERE id = $3 RETURNING *`, [title, description, id]);
+      return result.rows[0];
+    }
+    catch(error){
+      throw error;
+    }
+  }
+
 }
+
+const Course = new CourseModel({pool});
+module.exports = Course;

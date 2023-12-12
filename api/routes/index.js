@@ -1,5 +1,7 @@
 module.exports = function (app) {
   app.use('/api/users', require("./userRoutes"));
+  app.use('/api/courses', require("./courseRoutes"));
+  app.use('/api/enrollments', require("./enrollmentRoute"));
 
 
 

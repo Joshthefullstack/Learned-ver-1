@@ -21,6 +21,9 @@ class UserModel{
     const id = generateUniqueId();
     const salt = await bcrypt.genSalt();
     password = await bcrypt.hash(password, salt);
+    if(role !== "student" && role !== "teacher"){
+      throw new Error("Role must be either a teacher or student");
+    }
     // const client = await this.pool.connect();
     try {
       const result = await this.pool.query(
