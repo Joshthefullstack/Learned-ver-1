@@ -17,7 +17,7 @@ class EnrollmentModel {
       if(student.rows[0].role === "teacher"){
         throw new Error("Only students can enroll for courses");
       }
-      const result = await this.pool.query(`INSERT INTO ${ENROLLMENTS} (id, course_id, student_id) VALUES ($1, $2) RETURNING *`, [id, course_id, student_id]);
+      const result = await this.pool.query(`INSERT INTO ${ENROLLMENTS} (id, course_id, student_id) VALUES ($1, $2, $3) RETURNING *`, [id, course_id, student_id]);
       return result.rows[0];
     }
     catch(error){
