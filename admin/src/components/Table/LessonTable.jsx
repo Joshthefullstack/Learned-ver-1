@@ -24,10 +24,12 @@ const LessonTable = ({lessons, courses, users}) => {
                   <td>{key + 1}</td>
                   <td>{item.title}</td>
                   <td>{item.course_id
-                    ? users.find((user) => user.id === item.instructor_id)
-                        .username
+                    ? courses.find((course) => course.id === item.course_id)
+                        .title
                     : ""}</td>
-                  <td>{'Mr. Yuu'}</td>
+                  <td>{
+                     console.log(users.filter((user) => user.id === courses.find((course) => course.id === item.course_id).instructor_id))
+                    }</td>
                   <td>
                     <FiEdit className="icon edit_icon" />
                     <MdDelete className="icon delete_icon" />
