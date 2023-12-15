@@ -68,8 +68,8 @@ class CourseModel{
 
   async update(id, course){
     try{
-      const { title, description } = course;
-      const result = await this.pool.query(`UPDATE ${COURSES} SET title = $1, description = $2 WHERE id = $3 RETURNING *`, [title, description, id]);
+      const { title, description, instructor_id } = course;
+      const result = await this.pool.query(`UPDATE ${COURSES} SET title = $1, description = $2, instructor_id = $3 WHERE id = $4 RETURNING *`, [title, description, instructor_id, id]);
       return result.rows[0];
     }
     catch(error){

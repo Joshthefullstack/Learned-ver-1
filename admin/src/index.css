@@ -45,3 +45,7 @@ Table{
 .plus_icon{
   color: blue;
 }
+
+.error-msg{
+  color: red;
+}
