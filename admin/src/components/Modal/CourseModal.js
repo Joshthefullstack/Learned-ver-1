@@ -14,6 +14,18 @@ const CourseModal = ({show, handleClose, modalAction, users, onSave, selectedCou
   const [descriptionError, setDescriptionError] = useState('');
   const [instructorError, setInstructorError] = useState('');
 
+  const clearErrorValues = () => {
+    setError('');
+    setDescriptionError('');
+    setInstructorError('');
+  }
+
+  const clearValues = () => {
+    setTitle('');
+    setDescription('');
+    setInstructor('')
+  }
+
   useEffect(() => {
     if(selectedCourse !== null){
       setTitle(selectedCourse.title);
@@ -21,9 +33,7 @@ const CourseModal = ({show, handleClose, modalAction, users, onSave, selectedCou
       setInstructor(selectedCourse.instructor_id);
     } 
     if(modalAction === 'ADD'){
-      setTitle('');
-      setDescription('');
-      setInstructor('')
+      clearValues();
     }
   }, [selectedCourse, modalAction])
 
@@ -68,15 +78,15 @@ const CourseModal = ({show, handleClose, modalAction, users, onSave, selectedCou
       return false;
     }
     else{
-      setError('');
-      setDescriptionError('');
-      setInstructorError('');
+      clearErrorValues()
     }
-    // console.log(formData);
-    // const { title , description} = formData;
     const editForm = { id: selectedCourse?.id, title, description, instructor_id }
-    modalAction === 'ADD' ? onSave(formData) : onSave(editForm)
-    // onSave(formData)
+    if(modalAction === 'ADD'){
+      onSave(formData);
+      clearValues()
+    } else{
+      onSave(editForm)
+    }
   }
 
   return (
