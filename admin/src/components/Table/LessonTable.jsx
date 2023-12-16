@@ -2,8 +2,13 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import { FiEdit } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+
 
 const LessonTable = ({lessons, courses, users}) => {
+
+  const navigate = useNavigate();
+
   return (
     <div>
       <Table striped bordered hover>
@@ -28,10 +33,10 @@ const LessonTable = ({lessons, courses, users}) => {
                         .title
                     : ""}</td>
                   <td>{
-                     console.log(users.filter((user) => user.id === courses.find((course) => course.id === item.course_id).instructor_id))
+                     users.find((user) => user.id === courses.find((course) => course.id === item.course_id).instructor_id).username
                     }</td>
                   <td>
-                    <FiEdit className="icon edit_icon" />
+                    <FiEdit className="icon edit_icon" onClick={() => {navigate(`/edit-lessons/${item.id}`)}} />
                     <MdDelete className="icon delete_icon" />
                   </td>
                 </tr>

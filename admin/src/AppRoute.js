@@ -24,6 +24,14 @@ export const router = createBrowserRouter([
       {
         path: "/add-lessons",
         element: <AddLessons/>
+      },
+      {
+        path: "/edit-lessons/:id",
+        element: <AddLessons/>
+      },
+      {
+        path: "*",
+        element: <h1>Not Found</h1>
       }
     ]
   }

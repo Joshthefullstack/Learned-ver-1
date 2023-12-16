@@ -4,13 +4,18 @@ import LessonTable from "../components/Table/LessonTable";
 import Lesson from "../services/lessons/lesson";
 import User from "../services/users/users";
 import CourseModel from "../services/courses/course";
+import { useNavigate } from "react-router-dom";
+import { LessonModalAction } from "./AddLessons";
 
 
 const Lessons = () => {
   const [loading, isLoading] = React.useState(false);
   const [lessons, setLessons] = React.useState([]);
   const [users, setUsers] = React.useState([]);
-  const [courses, setCourses] = React.useState([])
+  const [courses, setCourses] = React.useState([]);
+  const [modalAction, setModalAction] = React.useState(LessonModalAction)
+
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -31,6 +36,20 @@ const Lessons = () => {
     fetchData();
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      await Lesson.deleteLesson(id);
+      const lessons = await Lesson.getLessons();
+      setLessons(lessons.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleSave = () => {
+
+  }
+
 
   return (
     <div>
@@ -39,7 +58,7 @@ const Lessons = () => {
         <Button
           onClick={() => {
             // setModalAction(ModalAction.ADD);
-            // handleShow();
+            navigate('/add-lessons')
           }}
         >
           Add Lesson

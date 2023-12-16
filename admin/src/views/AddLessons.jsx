@@ -4,7 +4,13 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import CoursesModel from "../services/courses/course";
+import { useNavigate } from 'react-router-dom'
 
+
+export const LessonModalAction = {
+  ADD: 'ADD',
+  EDIT: 'EDIT'
+}
 
 const AddLessons = () => {
   const [validated, setValidated] = useState(false);
@@ -12,6 +18,7 @@ const AddLessons = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [course_id, setCourse_id] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -43,7 +50,10 @@ const AddLessons = () => {
 
   return (
     <div>
-      <h1 className="mb-3 mt-4">Add Lessons</h1>
+      <div className='header-flex'>
+         <h1 className="mb-3 mt-4">Add Lessons</h1>
+        <Button variant='danger' onClick={() => navigate(-1)}>Back</Button>
+      </div>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Form.Group
