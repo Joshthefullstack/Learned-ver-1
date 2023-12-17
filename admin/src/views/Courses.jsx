@@ -109,6 +109,7 @@ const Courses = () => {
           handleShow={handleShow}
           setSelectedCourse={setSelectedCourse}
           deleteCourse={deleteCourse}
+          setModalAction={setModalAction}
         />
       )}
     </div>
