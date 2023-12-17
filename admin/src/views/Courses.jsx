@@ -46,7 +46,11 @@ const Courses = () => {
       await CoursesModel.deleteCourse(courseId);
       setCourses(courses.filter((course) => course.id !== courseId));
     } catch (err) {
-      console.log(err);
+      // console.log(err.response);
+      if(err.response.data.status === false){
+        // if (!AlertMod.simpleAlert("Error", err.response.data.message)) return;
+        AlertMod.confirmationAlert(err.response.data.error, "error");
+      }
     } finally {
       setLoading(false);
     }

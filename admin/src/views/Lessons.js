@@ -5,7 +5,6 @@ import Lesson from "../services/lessons/lesson";
 import User from "../services/users/users";
 import CourseModel from "../services/courses/course";
 import { useNavigate } from "react-router-dom";
-import { LessonModalAction } from "./AddLessons";
 
 
 const Lessons = () => {
@@ -13,7 +12,6 @@ const Lessons = () => {
   const [lessons, setLessons] = React.useState([]);
   const [users, setUsers] = React.useState([]);
   const [courses, setCourses] = React.useState([]);
-  const [modalAction, setModalAction] = React.useState(LessonModalAction)
 
   const navigate = useNavigate();
 
@@ -46,18 +44,12 @@ const Lessons = () => {
     }
   };
 
-  const handleSave = () => {
-
-  }
-
-
   return (
     <div>
       <div className="header-flex mb-5">
         <h1>Lessons</h1>
         <Button
           onClick={() => {
-            // setModalAction(ModalAction.ADD);
             navigate('/add-lessons')
           }}
         >
@@ -65,7 +57,7 @@ const Lessons = () => {
         </Button>
       </div>
 
-      {loading ? <div>Loading</div> : <LessonTable lessons={lessons} courses={courses} users={users} />}
+      {loading ? <div>Loading</div> : <LessonTable lessons={lessons} courses={courses} users={users} handleDelete={handleDelete} />}
     </div>
   );
 };

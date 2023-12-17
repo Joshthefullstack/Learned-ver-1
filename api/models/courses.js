@@ -43,6 +43,10 @@ class CourseModel{
         return result.rows[0];
       }
       catch(error){
+        if(error.code === '23503'){
+          // console.log(error)
+          throw new Error("Course is currently in use by a lesson.");
+        }
         throw error;
       }
     }
