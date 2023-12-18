@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       {/* <LoginPage/>
       <RouterProvider router={router}/> */}
-      {showLandingPage ? <LoginPage/> : <RouterProvider router={router}/>}
+      {showLandingPage ? <LoginPage setShowLandingPage={setShowLandingPage} /> : <RouterProvider router={router}/>}
     </div>
   );
 }
