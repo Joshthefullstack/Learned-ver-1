@@ -74,6 +74,9 @@ class UserModel{
           try {
             const user = await this.findByEmail(email);
             if(user){
+              if(user.role === 'student'){
+                throw new Error('Only teachers are allowed on this platform')
+              }
               const isMatch = await bcrypt.compare(password, user.password);
               if(isMatch){
                 return user;

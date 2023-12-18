@@ -14,3 +14,39 @@ Table{
   font-size: 16px;
 }
 
+.layout{
+  display: flex;
+}
+
+.layout-content{
+  width: calc(100% - 230px);
+  padding: 1em;
+}
+
+.header-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon{
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: .5em;
+}
+
+.edit_icon{
+  color: green;
+}
+
+.delete_icon{
+  color: red;
+}
+
+.plus_icon{
+  color: blue;
+}
+
+.error-msg{
+  color: red;
+}

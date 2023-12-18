@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "../styles/LoginPage.module.css";
 import User from "../services/users/users";
 import AlertMod from "../utils/alerts";
+// import { useNavigate } from "react-router-dom";
 
 const LoginPage = ({ setShowLandingPage }) => {
   const [username, setUserName] = useState("");
@@ -13,8 +14,6 @@ const LoginPage = ({ setShowLandingPage }) => {
   const [emailError, setEmailError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [formAction, setFormAction] = useState("login");
-  const [user, setUser] = useState({});
-  const [item, setItems] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,13 +47,13 @@ const LoginPage = ({ setShowLandingPage }) => {
       if(formAction === 'login'){
         const data = await User.loginUser(loginUser);
         if(data.status){
-          // setUser(prev => ({...prev, data}));
-          console.log(user);
-          // setShowLandingPage(false);
+          localStorage.setItem('user', JSON.stringify(data.data))
+          setShowLandingPage(false);
         } 
       } else {
         const data = await User.createUser(signupUser);
         if(data.status){
+          localStorage.setItem('user', JSON.stringify(data.data))
           setShowLandingPage(false);
         }
       }
@@ -63,6 +62,9 @@ const LoginPage = ({ setShowLandingPage }) => {
       console.log(error)
     }
   };
+
+
+
   return (
     <div className={style.containers}>
       <input type="checkbox" id="signup_toggle" className={style.checkbox} />
