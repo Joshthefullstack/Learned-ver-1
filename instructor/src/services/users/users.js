@@ -19,6 +19,11 @@ class Users {
     const { data } = await axios.post(`${endpoint_url}users`, user);
     return data;
   }
+
+  async loginUser(user) {
+    const { data } = await axios.post(`${endpoint_url}users/login`, user);
+    return data;
+  }
 }
 
 const User = new Users({axios});

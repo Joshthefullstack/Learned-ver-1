@@ -83,7 +83,7 @@ class UserModel{
               }
             }
             else{
-              throw new Error("User does not exist");
+              throw new Error("This email does not exist");
             }
           } catch (error) {
             throw error;
