@@ -5,9 +5,11 @@ import User from "../services/users/users";
 const LoginPage = ({ setShowLandingPage }) => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
   const [confirmPassword, setConfirmPassword] = useState("");
   const [usernameError, setUserNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [emailError, setEmailError] = useState('');
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
   const handleSubmit = (e) => {
@@ -18,10 +20,16 @@ const LoginPage = ({ setShowLandingPage }) => {
     if (password.length < 6) {
       setPasswordError("Password must be more than 6 characters");
     }
+    if (email.length < 5) {
+      setEmailError("Email must be more than 5 characters");
+    }
+    if (!email.includes('@' || !email.includes('.com'))){
+      setEmailError("Email must be valid");
+    }
     if (confirmPassword !== password) {
       setConfirmPasswordError("Passwords do not match");
     }
-    return;
+    if(usernameError.length > 0 || passwordError.length > 0 || confirmPasswordError.length > 0) return;
 
     const user = { username, password };
     console.log(user);
@@ -35,17 +43,19 @@ const LoginPage = ({ setShowLandingPage }) => {
             Login as a Learned Instructor
           </div>
           <input
-            placeholder="Username"
+            placeholder="Email"
             className={style.input}
             type="text"
             onChange={(e) => {
-              setUserName(e.target.value);
+              setEmail(e.target.value);
               if (e.target.value.length > 5) {
-                setUserNameError("");
+                setEmailError("");
+              } else{
+                setEmailError("Email must be more than 5 characters");
               }
             }}
           />
-          <p className={style.error}>{usernameError}</p>
+          <p className={style.error}>{emailError}</p>
           <input
             placeholder="Password"
             className={style.input}
@@ -54,6 +64,8 @@ const LoginPage = ({ setShowLandingPage }) => {
               setPassword(e.target.value);
               if (e.target.value.length > 5) {
                 setPasswordError("");
+              } else{
+                setPasswordError("Password must be more than 5 characters");
               }
             }}
           />
@@ -84,6 +96,8 @@ const LoginPage = ({ setShowLandingPage }) => {
               setUserName(e.target.value);
               if (e.target.value.length > 5) {
                 setUserNameError("");
+              } else{
+                setUserNameError("Username must be more than 5 characters");
               }
             }}
           />
@@ -91,6 +105,22 @@ const LoginPage = ({ setShowLandingPage }) => {
             ""
           ) : (
             <p className={style.error}>{usernameError}</p>
+          )}
+          <input
+            placeholder="Email"
+            className={style.input}
+            type="text"
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (e.target.value.length > 5) {
+                setEmail("");
+              }
+            }}
+          />
+          {emailError.length === 0 ? (
+            ""
+          ) : (
+            <p className={style.error}>{emailError}</p>
           )}
           <input
             placeholder="Password"

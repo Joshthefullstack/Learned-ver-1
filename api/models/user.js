@@ -24,7 +24,6 @@ class UserModel{
     if(role !== "student" && role !== "teacher"){
       throw new Error("Role must be either a teacher or student");
     }
-    // const client = await this.pool.connect();
     try {
       const result = await this.pool.query(
         `INSERT INTO ${USERS} ( id, username, email, password, role ) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
