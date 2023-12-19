@@ -10,9 +10,9 @@ const Navbar = () => {
 
       <div className={style.link__group}>
         <a href="/">Home</a>
-        <a href="/">About</a>
-        <a href="/">Courses</a>
-        <a href="/">Contact</a>
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#contact">Contact</a>
       </div>
 
       <div className={style.button__group}>

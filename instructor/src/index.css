@@ -4,6 +4,10 @@
   font-family: 'Afacad', sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -50,4 +54,9 @@ Table{
 
 .error-msg{
   color: red;
+}
+
+.containers{
+  width: 90%;
+  margin: 0 auto;
 }

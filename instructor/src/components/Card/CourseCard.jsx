@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 
-function CourseCard({key, course}) {
+function CourseCard({key, course, setShowCourse, setSelectedCourse}) {
   return (
     <Card style={{ width: '20rem' }} key={key}>
       <Card.Body>
@@ -8,7 +8,7 @@ function CourseCard({key, course}) {
         <Card.Text>
           {course.description}
         </Card.Text>
-        <Card.Link href="#">Go to Course</Card.Link>
+        <Card.Link href="#" onClick={() => {setShowCourse(true); setSelectedCourse(course)}}>Go to Course</Card.Link>
       </Card.Body>
     </Card>
   );

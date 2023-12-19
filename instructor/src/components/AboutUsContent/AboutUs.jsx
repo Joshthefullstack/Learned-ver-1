@@ -4,7 +4,7 @@ import style from "../../styles/AboutUs.module.css";
 
 const AboutUs = () => {
   return (
-    <div className={style.container}>
+    <div className={style.container} id='about'>
       <div>
         <h1>What do we do?</h1>
         <p>In today's fast-paced world, access to quality education is more critical than ever.</p>

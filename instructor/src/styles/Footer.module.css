@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #befafc;
+  padding: 10px 30px;
+  box-shadow: 3px 0px 13px -1px rgba(0, 0, 0, 0.58);
+  -webkit-box-shadow: 3px 0px 13px -1px rgba(0, 0, 0, 0.58);
+  -moz-box-shadow: 3px 0px 13px -1px rgba(0, 0, 0, 0.58);
+  margin-top: 10em;
+}
+
+.container img {
+  width: 8%;
+}
+
+.container div:last-child {
+  display: flex;
+  gap: 20px;
+}

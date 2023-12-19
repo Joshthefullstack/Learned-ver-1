@@ -9,24 +9,24 @@ import style from "../../styles/ContactContent.module.css";
 
 const ContactContent = () => {
   return (
-    <div className={style.container}>
+    <div className={style.container} id='contact'>
       <h1>Reach Out to Us</h1>
       <div className={style.container2}>
       <Form>
           <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridName">
+            <Form.Group  controlId="formGridName">
               <Form.Label>Name</Form.Label>
               <Form.Control type="text" placeholder="Enter Name" />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Group as={Col} className="mt-2" controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" placeholder="Enter email" />
             </Form.Group>
           </Row>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
         <Form.Label>Leave a message</Form.Label>
-        <Form.Control as="textarea" rows={3} />
+        <Form.Control as="textarea" />
       </Form.Group>
 
           
