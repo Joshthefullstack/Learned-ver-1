@@ -1,0 +1,43 @@
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 3em;
+  width: 90%;
+  /* background-color: #8a2be2; */
+}
+
+.container div{
+  width: 55%;
+}
+
+.icons{
+  position: absolute;
+  width: 7%;
+  left: 800px;
+  top: 200px;
+}
+
+.icons2{
+  position: absolute;
+  width: 6%;
+  top: 120px;
+  left: 880px;
+}
+
+.icons3{
+  position: absolute;
+  width: 6%;
+  top: 300px;
+  left: 800px;
+}
+
+.container span{
+  color: #8a2be2;
+}
+
+.container p:last-child{
+  color: #8a2be2;
+  font-size: 18px;
+}

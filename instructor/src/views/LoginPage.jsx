@@ -90,7 +90,7 @@ const LoginPage = ({ setShowLandingPage }) => {
           <input
             placeholder="Password"
             className={style.input}
-            type="text"
+            type="password"
             onChange={(e) => {
               setPassword(e.target.value);
               if (e.target.value.length > 5) {
@@ -164,7 +164,7 @@ const LoginPage = ({ setShowLandingPage }) => {
           <input
             placeholder="Password"
             className={style.input}
-            type="text"
+            type="password"
             onChange={(e) => {
               setPassword(e.target.value);
               if (e.target.value.length > 5) {
@@ -182,7 +182,7 @@ const LoginPage = ({ setShowLandingPage }) => {
           <input
             placeholder="Confirm Password"
             className={style.input}
-            type="text"
+            type="password"
             onChange={(e) => {
               setConfirmPassword(e.target.value);
               if (e.target.value.length > 5) {

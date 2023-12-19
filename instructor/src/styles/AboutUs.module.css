@@ -1,0 +1,31 @@
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 7em;
+  width: 90%;
+  gap: 1em;
+  /* background-color: #8a2be2; */
+}
+
+.container h1{
+  color: #8a2be2;
+}
+
+.container p{
+  font-size: 18px;
+  line-height: 1.8em;
+}
+
+.container div button{
+  background-color: #8a2be2;
+  color: #fff;
+  padding: 10px 35px;
+  border-radius: 10px;
+  border: none;
+}
+
+.container span{
+  color: #8a2be2;
+}

@@ -1,0 +1,16 @@
+.container{
+  margin: 0 auto;
+  margin-top: 7em;
+  width: 90%;
+  gap: 1em;
+}
+
+.container2{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container h1{
+  color: #8a2be2;
+}
