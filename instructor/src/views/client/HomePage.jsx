@@ -7,12 +7,12 @@ import ContactContent from "../../components/ContactContent/ContactContent";
 import Footer from '../../components/Footer/Footer';
 import Course from './Course';
 
-const HomePage = () => {
+const HomePage = ({setAction, setShowInstructorLogin}) => {
   const [showCourse, setShowCourse] = React.useState(false);
   const [selectedCourse, setSelectedCourse] = React.useState({})
   return (
     <div>
-      <Navbar/>
+      <Navbar setAction={setAction} setShowInstructorLogin={setShowInstructorLogin} />
       {showCourse ? '' : <HeroContent/>}
       {showCourse ? '' : <AboutUsContent/>}
       {showCourse ? '' : <CourseContent setShowCourse={setShowCourse} setSelectedCourse={setSelectedCourse} />}

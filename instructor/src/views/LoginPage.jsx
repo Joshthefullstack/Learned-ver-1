@@ -4,7 +4,7 @@ import User from "../services/users/users";
 import AlertMod from "../utils/alerts";
 // import { useNavigate } from "react-router-dom";
 
-const LoginPage = ({ setShowLandingPage }) => {
+const LoginPage = ({ setShowLandingPage, setShowInstructorLogin }) => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -49,6 +49,7 @@ const LoginPage = ({ setShowLandingPage }) => {
         if(data.status){
           localStorage.setItem('user', JSON.stringify(data.data))
           setShowLandingPage(false);
+          setShowInstructorLogin(false);
         } 
       } else {
         const data = await User.createUser(signupUser);
@@ -58,7 +59,7 @@ const LoginPage = ({ setShowLandingPage }) => {
         }
       }
     } catch(error){
-      AlertMod.confirmationAlert(error.response.data.error, 'error');
+      // AlertMod.confirmationAlert(error.response.data.error, 'error');
       console.log(error)
     }
   };

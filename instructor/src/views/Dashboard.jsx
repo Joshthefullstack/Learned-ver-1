@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import screenshot from "../assets/Screenshot (72).png"
+
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
-  )
-}
+    <div>
+      <img src={screenshot} alt='' className="screenshot"/>
+    </div>
+  );
+};
 
-export default Dashboard
+export default Dashboard;

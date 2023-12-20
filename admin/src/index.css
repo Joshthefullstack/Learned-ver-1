@@ -50,3 +50,8 @@ Table{
 .error-msg{
   color: red;
 }
+
+.screenshot{
+  margin-top: 5em;
+  margin-left: 4em;
+}

@@ -1,0 +1,12 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 9em;
+}
+
+.container img{
+  width: 30%;
+}

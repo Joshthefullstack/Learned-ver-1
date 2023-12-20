@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import screenshot from "../components/Screenshot (72).png"
+
 
 const Dashboard = () => {
   return (
     <div>
-      <h1>This is the dashboard</h1>
+      <img src={screenshot} alt='' className='screenshot'/>
     </div>
   )
 }

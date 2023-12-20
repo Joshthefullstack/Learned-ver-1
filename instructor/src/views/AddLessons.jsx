@@ -123,7 +123,7 @@ const AddLessons = () => {
 
           <Form.Group as={Col} md="12" controlId="validationCustom03" className="mt-4">
             <Form.Select required onChange={(e) => {setCourse_id(e.target.value)}}>course
-            <option value={selectedLesson !== null ? selectedLesson?.course_id : '0'}>{selectedLesson.length !== 0 ? courses.find(course => course.id === selectedLesson?.course_id)?.title : 'Select Instructor'}</option>
+            <option value={selectedLesson !== null ? selectedLesson?.course_id : '0'}>{selectedLesson.length !== 0 ? courses.find(course => course.id === selectedLesson?.course_id)?.title : 'Select Course'}</option>
               {
                 courses.map((course, key) => {
                   return(                 
@@ -132,9 +132,6 @@ const AddLessons = () => {
                   })
               }
             </Form.Select>
-            {/* <Form.Control.Feedback type="invalid">
-              Please select a course
-            </Form.Control.Feedback> */}
             </Form.Group>
         </Row>
         <Button type="submit" className="mt-3">Submit form</Button>

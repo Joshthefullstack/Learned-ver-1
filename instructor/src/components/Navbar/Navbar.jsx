@@ -3,7 +3,7 @@ import cover from "../../assets/cover.png";
 // import { Link } from 'react-router-dom';
 import style from "../../styles/Navbar.module.css";
 
-const Navbar = () => {
+const Navbar = ({ setAction, setShowInstructorLogin }) => {
   return (
     <div className={style.container}>
       <img src={cover} alt="" />
@@ -16,8 +16,8 @@ const Navbar = () => {
       </div>
 
       <div className={style.button__group}>
-        <button>Get Started</button>
-        <button>For Instructors</button>
+        <button onClick={() => {setAction('student login')}}>Get Started</button>
+        <button onClick={() => {setAction('student login'); setShowInstructorLogin(true)}}>For Instructors</button>
       </div>
     </div>
   );
